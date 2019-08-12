@@ -1,6 +1,6 @@
 # http_https_response_time_exporter
 
-Docker image for getting and exporting response time metric
+Docker image for getting HTTP/HTTPS response time as metric and put it into Pushgateway
 
 #### Usage
 ###### Example Environment
