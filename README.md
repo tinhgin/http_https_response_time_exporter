@@ -5,6 +5,6 @@ Docker image for getting HTTP/HTTPS response time as metric and put it into Push
 #### Usage
 ###### Example Environment
 - INTERVAL=10
-- URL=https://fpt.vn/member
-- PUSHGATEWAY=http://pushgateway.fpt.net
-- PROJECTNAME=NEWMEMBER
+- URL=https://abc.com
+- PUSHGATEWAY=http://pushgateway.abc.com
+- PROJECTNAME=abc
