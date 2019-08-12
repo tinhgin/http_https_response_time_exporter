@@ -43,7 +43,7 @@ if __name__ == '__main__':
         pushgateway = os.environ['PUSHGATEWAY']
         logger.info("Environment variable PUSHGATEWAY=%s" % pushgateway)
     except:
-        pushgateway = "http://pushgateway.fpt.net"
+        pushgateway = "http://127.0.0.1"
         logger.debug("Environment variable PUSHGATEWAY is not set. Use default PUSHGATEWAY=%s" % pushgateway)
 
     try:
