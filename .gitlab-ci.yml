@@ -1,0 +1,44 @@
+stages:
+  - build
+  - test
+  - release
+
+before_script:
+  - docker info
+  - docker login -u "admin" -p "ftelisc123" https://dockerhub.ibom.site/
+  - source set_docker_tag.sh
+
+
+################################################################################
+################################################################################
+
+master-build:
+  tags:
+    - docker
+
+  stage: build
+  script:
+    - docker build -t dockerhub.ibom.site/resptime_exporter:${DOCKER_TAG} .
+  only:
+    - tags
+
+master-release:
+  tags:
+    - docker
+
+  stage: release
+  script:
+    - docker push dockerhub.ibom.site/resptime_exporter:${DOCKER_TAG}
+    - docker rmi dockerhub.ibom.site/resptime_exporter:${DOCKER_TAG}
+  only:
+    - tags
+
+master-test:
+  tags:
+    - docker
+  stage: test
+  script:
+    - docker run --name test -d dockerhub.ibom.site/resptime_exporter:${DOCKER_TAG}
+    - docker rm -f test
+  only:
+    - tags
